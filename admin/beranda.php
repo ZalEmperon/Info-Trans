@@ -24,8 +24,7 @@
     <div class="container pt-4">
       <h1 class="fw-bold">DASBOARD DATA INFO TRANS</h1>
       <h2>Welcome <?php echo $login_session; ?></h2>
-      <a href = "logout.php" class="btn btn-danger">Sign Out</a>
-
+      <a href = "logout.php" class="btn btn-danger">Log Out</a>
       <button type="button" class="btn btn-success float-end" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
         Tambah Data
       </button>
@@ -51,7 +50,6 @@
           </div>
         </div>
       </div>
-
       <br><br>
       <div class="table-responsive">
         <table class="table table-bordered table-striped table-dark">
@@ -77,8 +75,7 @@
                     <td><a href="FromEdit.php?id=<?php echo $row['no'];?>" class="btn btn-success">Edit</a>
                     <a href="ProsesHapus.php?id=<?php echo $row['no'];?>" class="btn btn-danger">hapus</a></td>
                 </tr>
-            <?php $no++;
-                    endforeach;?>
+            <?php $no++;endforeach;?>
         </table>
       </div>
     </div><br><br><br><br><br><br>
@@ -90,18 +87,20 @@
           <th>Nama</th>
           <th>Email</th>
           <th>Feedback</th>
+          <th>Action</th>
         </tr>
-        <?php  $no = 1;
+        <?php  $id = 1;
         $query1 = "SELECT * FROM feedback";
         $result1 = mysqli_query($koneksi,$query1);
         foreach ($result1 as $rows) :?>
         <tr>
-          <td><?php echo $no;?></td>
+          <td><?php echo $id;?></td>
           <td><?php echo $rows['nama'];?></td>
           <td><?php echo $rows['email'];?></td>
           <td><?php echo $rows['feedback'];?></td>
+          <td><a href="ProsesHapusFeedback.php?id=<?php echo $rows['id'];?>" class="btn btn-danger">hapus</a></td>
         </tr>
-      <?php $no++;endforeach; ?>
+      <?php $id++;endforeach; ?>
       </table>
     </div>
     </div>
