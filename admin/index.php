@@ -9,8 +9,6 @@ session_start();
     $sql = "SELECT id FROM adminlogin WHERE adminname = '$adminname' and password = '$password'";
     $result = mysqli_query($koneksi,$sql);
     $row = mysqli_fetch_array($result,MYSQLI_ASSOC);
-    $active = $row['active'];
-
     $count = mysqli_num_rows($result);
     if($count == 1) {
        $_SESSION['login_user'] = $adminname;
